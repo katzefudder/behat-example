@@ -4,3 +4,7 @@ Feature: Greeting
   Scenario:
     Given a name
     Then the script should greet that name
+
+  Scenario:
+    Given the name "Harry Hirsch"
+    Then the script should say "Hello Harry Hirsch"
