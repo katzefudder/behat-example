@@ -27,25 +27,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function __construct(){}
 	
-	
-	/**
-	 * @Given /^a name$/
-	 */
-	public function aName()
-	{
-		$this->instance = new Greeting('any name');
-		assertEquals($this->instance->getName(), 'any name');
-	}
-	
-	/**
-	 * @Then /^the script should greet that name$/
-	 */
-	public function theScriptShouldGreetThatName()
-	{
-		$this->instance = new Greeting('whatever name');
-		assertEquals($this->instance->greet(), 'Hello whatever name');
-	}
-	
 	/**
 	 * @Given /^the name "([^"]*)"$/
 	 */
