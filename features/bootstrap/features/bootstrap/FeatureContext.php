@@ -18,14 +18,14 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 {
 	protected $instance;
 	
-    /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
-    public function __construct(){}
+	/**
+	 * Initializes context.
+	 *
+	 * Every scenario gets its own context instance.
+	 * You can also pass arbitrary arguments to the
+	 * context constructor through behat.yml.
+	 */
+	public function __construct() {}
 	
 	/**
 	 * @Given /^the name "([^"]*)"$/
@@ -42,7 +42,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 	public function theScriptShouldSay($name)
 	{
 		$this->instance = new Greeting($name);
-		assertEquals($this->instance->greet(), 'Hello '.$name);
+		assertEquals($this->instance->greet(), 'Hello ' . $name);
 	}
 	
 	/**
