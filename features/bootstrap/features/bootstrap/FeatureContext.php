@@ -1,6 +1,10 @@
 <?php
 
-use Behat\Behat\Context\BehatContext;
+namespace features\bootstrap;
+
+use Behat\Behat\Context\Context;
+use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\MinkExtension\Context\MinkContext;
 
 use Katzefudder\Greeting;
 
@@ -8,23 +12,21 @@ require_once 'PHPUnit/Autoload.php';
 require_once 'PHPUnit/Framework/Assert/Functions.php';
 
 /**
- * Features context.
+ * Defines application features from the specific context.
  */
-class FeatureContext extends BehatContext
+class FeatureContext extends MinkContext implements Context, SnippetAcceptingContext
 {
-	
 	protected $instance;
 	
-	/**
-	 * Initializes context.
-	 * Every scenario gets it's own context object.
-	 *
-	 * @param array $parameters context parameters (set them up through behat.yml)
-	 */
-	public function __construct(array $parameters)
-	{
-		
-	}
+    /**
+     * Initializes context.
+     *
+     * Every scenario gets its own context instance.
+     * You can also pass arbitrary arguments to the
+     * context constructor through behat.yml.
+     */
+    public function __construct(){}
+	
 	
 	/**
 	 * @Given /^a name$/
@@ -69,5 +71,30 @@ class FeatureContext extends BehatContext
 	{
 		$this->instance = new Greeting();
 		assertEquals($this->instance->greet(), 'Hello unknown stranger');
+	}
+	
+	/**
+	 * @Given I visit :arg1
+	 */
+	public function iVisit($script)
+	{
+		$this->visit($script);
+	}
+	
+	/**
+	 * @When I enter :arg1 in the :arg2 field
+	 */
+	public function iEnterInTheField($value, $field)
+	{
+		$this->fillField($field, $value);
+	}
+	
+	
+	/**
+	 * @When I don't enter anything in the :arg1 field
+	 */
+	public function iDonTEnterAnythingInTheField($field)
+	{
+		$this->fillField($field, '');
 	}
 }
