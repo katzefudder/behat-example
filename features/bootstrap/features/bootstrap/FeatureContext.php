@@ -55,7 +55,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 	}
 	
 	/**
-	 * @Given I visit :arg1
+	 * @Given I visit :script
 	 */
 	public function iVisit($script)
 	{
