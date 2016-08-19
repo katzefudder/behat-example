@@ -49,19 +49,19 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 	/**
 	 * @Given /^the name "([^"]*)"$/
 	 */
-	public function theName($arg1)
+	public function theName($name)
 	{
-		$this->instance = new Greeting($arg1);
-		assertEquals($this->instance->getName(), $arg1);
+		$this->instance = new Greeting($name);
+		assertEquals($this->instance->getName(), $name);
 	}
 	
 	/**
 	 * @Then /^the script should say "([^"]*)"$/
 	 */
-	public function theScriptShouldSay($arg1)
+	public function theScriptShouldSay($name)
 	{
-		$this->instance = new Greeting($arg1);
-		assertEquals($this->instance->greet(), 'Hello '.$arg1);
+		$this->instance = new Greeting($name);
+		assertEquals($this->instance->greet(), 'Hello '.$name);
 	}
 	
 	/**
