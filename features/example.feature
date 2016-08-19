@@ -8,3 +8,7 @@ Feature: Greeting
   Scenario:
     Given the name "Harry Hirsch"
     Then the script should say "Hello Harry Hirsch"
+
+  Scenario:
+    Given no name
+    Then the script should say "Hello unknown stranger"

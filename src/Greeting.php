@@ -5,7 +5,7 @@ namespace Katzefudder;
 class Greeting {
 	private $name = '';
 	
-	public function __construct($name) {
+	public function __construct($name = '') {
 		$this->name = $name;
 		return $this;
 	}

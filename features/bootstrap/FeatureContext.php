@@ -61,4 +61,13 @@ class FeatureContext extends BehatContext
 		$this->instance = new Greeting($arg1);
 		assertEquals($this->instance->greet(), 'Hello '.$arg1);
 	}
+	
+	/**
+	 * @Given /^no name$/
+	 */
+	public function noName()
+	{
+		$this->instance = new Greeting();
+		assertEquals($this->instance->greet(), 'Hello unknown stranger');
+	}
 }
