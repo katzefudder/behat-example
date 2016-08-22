@@ -20,4 +20,3 @@ ci:
     pretty: false
     junit:
       output_path: %paths.base%/xml
-      output_file: moepse.xml
