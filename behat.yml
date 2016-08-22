@@ -1,6 +1,8 @@
 default:
   autoload:
     '': features/bootstrap
+  formatters:
+    pretty: true
   suites:
     default:
       contexts:
@@ -11,3 +13,11 @@ default:
         sessions:
           default:
             goutte: ~
+
+ci:
+  formatters:
+    progress: true
+    pretty: false
+    junit:
+      output_path: %paths.base%/xml
+      output_file: moepse.xml

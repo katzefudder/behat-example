@@ -8,4 +8,4 @@ before_script:
     - "sh start-server.sh > /dev/null &"
 
 script:
-    - bin/behat
+    - bin/behat -p ci
